@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appmc
+  labels:
+    app: appmc
+spec:
+  selector:
+    matchLabels:
+      app: appmc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: appmc
+    spec:
+      containers:
+        - name: appmc
+          image: memcached
+          ports:
+            - name: appmc-port
+              containerPort: 11211
+       
